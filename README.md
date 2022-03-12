@@ -35,7 +35,7 @@ export default function Weather() {
   async function getWeatherData() {
     try {
       const response = await axios.get(
-        "https://api.openweathermap.org/data/2.5/weather?q=Cathedral City&units=imperial&appid=4af365f7687d5c5742a44193bc7dc2fe"
+        "https://api.openweathermap.org/data/2.5/weather?q=Cathedral City&units=imperial&appid={API_KEY}"
       );
       const currentTemperature = Math.floor(response.data.main.temp);
       setTemp(currentTemperature);
