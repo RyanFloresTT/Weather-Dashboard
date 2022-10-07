@@ -1,21 +1,20 @@
-import { useEffect } from "react";
-
+import { useEffect, useState } from "react";
+import WeatherCard from "./WeatherCard";
 const API_KEY = process.env.REACT_APP_API_KEY;
 const axios = require("axios");
-const location = "London";
 
 export default function WeatherMonth(props) {
+  //30 Day Weather Forecast Data
+  const [forecastData, setforecastData] = useState([]);
   async function getMonthlyWeatherData() {
     try {
       const response = await axios.get(
-        "https://pro.openweathermap.org/data/2.5/forecast/climate?lat=35&lon=139&appid=0201eea316afb5249f408039ab374053",
-        { params: { lat: 35, lon: 139, appid: API_KEY } }
+        "https://pro.openweathermap.org/data/2.5/forecast/climate",
+        { params: { lat: 35, lon: 139, units: "imperial", appid: API_KEY } }
       );
-      const weatherMonth = response.data.list;
-      var timestamp = new Date(weatherMonth[0].dt);
-      var pubDate = new Date(timestamp * 1000);
-      console.log(pubDate);
-      console.log("API Successfully Called.");
+      var responseData = response.data.list.slice(0);
+      setforecastData(responseData);
+      console.log("Weather Forecast API Successfully Called.");
     } catch (error) {
       console.error("API ERROR: " + error);
     }
@@ -27,7 +26,20 @@ export default function WeatherMonth(props) {
     }, 5000);
 
     return () => clearInterval(tempInterval);
-  }, []);
+  });
 
-  return <br></br>;
+  return (
+    <div>
+      {forecastData.map((data, index) => {
+        return (
+          <WeatherCard
+            key={index}
+            id={index}
+            temperature={data.deg}
+            time={data.dt}
+          />
+        );
+      })}
+    </div>
+  );
 }

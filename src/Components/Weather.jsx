@@ -1,6 +1,7 @@
-import Temperature from "Temperature.jsx";
-import WeatherMonth from "WeatherMonth.jsx";
+import Temperature from "./Temperature";
+import WeatherMonth from "./WeatherMonth.jsx";
 
+//Temperature Data
 export default function Weather() {
   return (
     <div>

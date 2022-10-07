@@ -1,25 +1,20 @@
 import { useEffect, useState } from "react";
-
 const API_KEY = process.env.REACT_APP_API_KEY;
 const axios = require("axios");
-const location = "London";
 
 export default function Temperature(props) {
-  //const [temp, setTemp] = useState(0);
+  let location = "London";
+  const [temp, setTemp] = useState(0);
 
   async function getWeatherData() {
     try {
       const response = await axios.get(
-        "https://pro.openweathermap.org/data/2.5/forecast/climate?lat=35&lon=139&appid=0201eea316afb5249f408039ab374053",
-        { params: { lat: 35, lon: 139, appid: API_KEY } }
+        "https://api.openweathermap.org/data/2.5/weather",
+        { params: { lat: 35, lon: 139, units: "imperial", appid: API_KEY } }
       );
-      //const currentTemperature = Math.floor(response.data.main.temp);
-      const weatherMonth = response.data.list;
-      var timestamp = new Date(weatherMonth[0].dt);
-      var pubDate = new Date(timestamp * 1000);
-      console.log(pubDate);
-      //setTemp(currentTemperature);
-      console.log("API Successfully Called.");
+      const currentTemperature = Math.floor(response.data.main.temp);
+      setTemp(currentTemperature);
+      console.log("Temperature API Successfully Called.");
     } catch (error) {
       console.error("API ERROR: " + error);
     }
@@ -36,7 +31,7 @@ export default function Temperature(props) {
   return (
     <div className="weather">
       <h1 className="weather-heading">
-        It is currently {/* temp */}° in {location}.
+        It is currently {temp}° in {location}.
       </h1>
     </div>
   );
