@@ -24,3 +24,10 @@
 .weather-heading {
   font-family: Montserrat;
 }
+
+.weather-card {
+  text-align: center;
+  border: 1px solid;
+  border-radius: 15px;
+  margin: 2px;
+}

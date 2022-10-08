@@ -29,7 +29,7 @@ export default function WeatherMonth(props) {
   });
 
   return (
-    <div>
+    <div className="weather-card-group">
       {forecastData.map((data, index) => {
         return (
           <WeatherCard
