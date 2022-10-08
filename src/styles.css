@@ -1,5 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300&family=Inter:wght@500&family=Montserrat:ital,wght@1,200&display=swap");
 
+#root {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+}
 .date,
 .time,
 .weather {
@@ -25,9 +32,16 @@
   font-family: Montserrat;
 }
 
+.weather-card-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 1rem;
+}
+
 .weather-card {
+  height: 150 px;
   text-align: center;
-  border: 1px solid;
+  border: 2px solid;
   border-radius: 15px;
   margin: 2px;
 }

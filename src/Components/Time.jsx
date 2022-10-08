@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import styles from "../styles.css";
 
 export default function Time() {
   const defaultD = new Date();
