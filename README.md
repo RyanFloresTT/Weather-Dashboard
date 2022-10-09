@@ -64,5 +64,4 @@ export default function Weather() {
 ## Author
 
 - Website - [Ryan Flores](https://ryanflorestt.github.io/cv/)
-- Frontend Mentor - [@RyanFloresTT](https://www.frontendmentor.io/profile/RyanFloresTT)
 - Twitter - [@rryanflorres](https://www.twitter.com/rryanflorres)
