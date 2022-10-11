@@ -40,7 +40,7 @@ export default function Today() {
   return (
     <div className="date">
       <h1 className="weekday-heading">{weekday}</h1>
-      <h1 className="date-heading">{date}</h1>
+      <h2 className="date-heading">{date}</h2>
     </div>
   );
 }

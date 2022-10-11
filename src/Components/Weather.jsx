@@ -1,12 +1,11 @@
 import Temperature from "./Temperature";
 import WeatherMonth from "./WeatherMonth.jsx";
 
-//Temperature Data
-export default function Weather() {
+export default function Weather(props) {
   return (
     <div>
-      <Temperature />
-      <WeatherMonth />
+      <Temperature lat={props.lat} lon={props.lon} location={props.location} />
+      <WeatherMonth lat={props.lat} lon={props.lon} location={props.location} />
     </div>
   );
 }

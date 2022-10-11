@@ -10,7 +10,14 @@ export default function WeatherMonth(props) {
     try {
       const response = await axios.get(
         "https://pro.openweathermap.org/data/2.5/forecast/climate",
-        { params: { lat: 35, lon: 139, units: "imperial", appid: API_KEY } }
+        {
+          params: {
+            lat: props.lat,
+            lon: props.lon,
+            units: "imperial",
+            appid: API_KEY,
+          },
+        }
       );
       var responseData = response.data.list.slice(0);
       setforecastData(responseData);

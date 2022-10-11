@@ -14,6 +14,25 @@
   text-align: center;
 }
 
+.city-input {
+}
+
+.date {
+  margin: 5rem 0 0 5rem;
+  text-align: left;
+}
+
+.time {
+  position: absolute;
+  right: 5rem;
+  top: 5rem;
+}
+
+.weather {
+  margin: 5rem 0 0 10rem;
+  text-align: left;
+}
+
 .weekday-heading {
   font-family: Montserrat;
   font-size: 3.5rem;
@@ -33,6 +52,7 @@
 }
 
 .weather-card-group {
+  margin: 5% 15%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 1rem;

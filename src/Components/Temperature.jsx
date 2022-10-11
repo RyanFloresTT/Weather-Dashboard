@@ -3,14 +3,21 @@ const API_KEY = process.env.REACT_APP_API_KEY;
 const axios = require("axios");
 
 export default function Temperature(props) {
-  let location = "London";
+  let location = props.location;
   const [temp, setTemp] = useState(0);
 
   async function getWeatherData() {
     try {
       const response = await axios.get(
         "https://api.openweathermap.org/data/2.5/weather",
-        { params: { lat: 35, lon: 139, units: "imperial", appid: API_KEY } }
+        {
+          params: {
+            lat: props.lat,
+            lon: props.lon,
+            units: "imperial",
+            appid: API_KEY,
+          },
+        }
       );
       const currentTemperature = Math.floor(response.data.main.temp);
       setTemp(currentTemperature);
