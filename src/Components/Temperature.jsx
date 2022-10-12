@@ -33,7 +33,7 @@ export default function Temperature(props) {
     }, 5000);
 
     return () => clearInterval(tempInterval);
-  }, []);
+  });
 
   return (
     <div className="weather">

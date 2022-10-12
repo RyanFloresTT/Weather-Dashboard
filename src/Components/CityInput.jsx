@@ -1,5 +1,6 @@
 import { useState } from "react";
-import Weather from "./Weather.jsx";
+import Temperature from "./Temperature";
+import WeatherMonth from "./WeatherMonth.jsx";
 const API_KEY = process.env.REACT_APP_API_KEY;
 const axios = require("axios");
 
@@ -46,7 +47,8 @@ export default function CityInput() {
         />
         <input type="submit" name="submitCity" />
       </form>
-      <Weather lat={lat} lon={lon} location={cityName} />
+      <Temperature lat={lat} lon={lon} location={cityName} />
+      <WeatherMonth lat={lat} lon={lon} location={cityName} />
     </div>
   );
 }
